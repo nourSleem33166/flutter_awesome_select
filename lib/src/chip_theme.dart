@@ -59,9 +59,7 @@ class S2ChipTheme extends StatelessWidget {
     final bool isDark = brightness == Brightness.dark;
 
     final Color primaryColor = color ??
-        (!isDark
-            ? Theme.of(context).unselectedWidgetColor
-            : ChipTheme.of(context).backgroundColor!);
+        (!isDark ? Theme.of(context).unselectedWidgetColor : Colors.white);
     final Color backgroundColor = raised == true
         ? primaryColor
         : outlined == true
@@ -82,7 +80,8 @@ class S2ChipTheme extends StatelessWidget {
             ? secondaryColor.withAlpha(foregroundAlpha)
             : primaryColor.withAlpha(foregroundAlpha);
 
-    final TextStyle defaultLabelStyle = ChipTheme.of(context).labelStyle!;
+    final TextStyle defaultLabelStyle =
+        ChipTheme.of(context).labelStyle ?? TextStyle(fontSize: 14);
     final TextStyle primaryLabelStyle =
         defaultLabelStyle.merge(labelStyle).copyWith(color: foregroundColor);
     final TextStyle selectedLabelStyle = defaultLabelStyle
